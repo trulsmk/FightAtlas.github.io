@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,24 +7,37 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🥊 Fight Atlas</h1>
-    <p>Din globale kampsportkalender</p>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>🥊 Fight Atlas <span class="dot">•</span></h1>
+      <p>Din globale kampsportkalender – MMA, boksing, grappling, Muay Thai, bare knuckle & slap.</p>
+
+      <div class="toolbar">
+        <input id="q" class="input" placeholder="Søk: UFC, Glory, IBJJF, Las Vegas, osv.">
+        <div class="chip-group" id="chip-group">
+          <!-- Filtre fylles også fra JS, men vi viser noen default -->
+          <button class="chip active" data-filter="ALL">Alle</button>
+          <button class="chip" data-filter="MMA">MMA</button>
+          <button class="chip" data-filter="Boxing">Boksing</button>
+          <button class="chip" data-filter="Grappling">Grappling</button>
+          <button class="chip" data-filter="Kick/Muay">Kick/Muay Thai</button>
+          <button class="chip" data-filter="Bare Knuckle">Bare Knuckle</button>
+          <button class="chip" data-filter="Slap">Slap</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-glow"></div>
   </header>
 
   <main>
-    <section class="events">
+    <section class="events section">
       <h2>Kommende kamper</h2>
-      <ul id="event-list">
-        <li><strong>UFC 305:</strong> 24. August 2025 - Las Vegas, USA</li>
-        <li><strong>BKFC 80:</strong> 15. September 2025 - Miami, USA</li>
-        <li><strong>ONE Championship: Revolution</strong> - 3. Oktober 2025 - Singapore</li>
-      </ul>
+      <ul id="event-list"></ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Fight Atlas - All rights reserved.</p>
+    © <span id="year"></span> Fight Atlas — bygges med kjærlighet til kampsport.
   </footer>
 
   <script src="script.js"></script>
