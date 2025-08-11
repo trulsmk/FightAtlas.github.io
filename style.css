@@ -1,45 +1,112 @@
-/* --- Header m/logo --- */
+/* ====== Palett (logo-inspirert) ====== */
 :root{
-  --bg:#0f1115; --text:#e8ebf0; --muted:#9aa3b2;
-  --panel:#141821; --border:1px solid rgba(255,255,255,.08);
-  --brand:#e11d2e; --max:1100px;
+  --navy:#0f2232;          /* mørk marine (bakgrunn) */
+  --deep:#132c41;          /* panel */
+  --ink:#0b1823;           /* dypere */
+  --text:#eaf0f5;          /* lys tekst */
+  --muted:#a8b7c6;         /* sekundær tekst */
+  --gold:#d5a23a;          /* belte-gull */
+  --gold-2:#b9871f;
+  --green:#5e8f3a;         /* land */
+  --blue:#2c6f95;          /* hav/blå */
+  --radius:14px;
+  --shadow:0 14px 36px rgba(0,0,0,.35);
+  --border:1px solid rgba(255,255,255,.08);
+  --max:1200px;
 }
 
-.container{max-width:var(--max); margin:0 auto; padding:0 20px}
+/* ====== Base ====== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  color:var(--text); background:
+    radial-gradient(1100px 700px at 90% -10%, rgba(44,111,149,.25), transparent 60%),
+    radial-gradient(900px 600px at -10% -20%, rgba(213,162,58,.18), transparent 55%),
+    var(--navy);
+  line-height:1.6;
+}
 
+/* ====== Header ====== */
 .site-header{
-  position: sticky; top:0; z-index:20;
-  backdrop-filter: blur(8px);
-  background: linear-gradient(180deg, rgba(15,17,21,.92), rgba(15,17,21,.6));
-  border-bottom: var(--border);
+  position:sticky; top:0; z-index:20; backdrop-filter: blur(8px);
+  border-bottom:var(--border);
+  background:linear-gradient(180deg, rgba(19,44,65,.95), rgba(19,44,65,.7));
 }
+.header-inner{max-width:var(--max); margin:0 auto; padding:14px 18px}
+.brand{display:flex; gap:12px; align-items:center; color:inherit; text-decoration:none}
+.logo{height:52px; width:auto; filter: drop-shadow(0 6px 16px rgba(0,0,0,.45))}
+.brand-text h1{margin:0; font-size:22px; font-weight:900; letter-spacing:.2px}
+.brand-text p{margin:2px 0 0; font-size:12px; color:var(--muted)}
 
-.header-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  min-height:72px;
-}
+/* ====== Layout (sidebar + content) ====== */
+.layout{max-width:var(--max); margin:18px auto; padding:0 18px;
+  display:grid; grid-template-columns: 270px 1fr; gap:18px}
+@media (max-width: 900px){ .layout{ grid-template-columns: 1fr } }
 
-.brand{
-  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+/* ====== Sidebar ====== */
+.sidebar{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%), var(--deep);
+  border:var(--border); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow);
 }
+.side-title{margin:0 0 8px; font-size:14px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em}
+.mt{ margin-top:16px; }
+.side-list{ list-style:none; padding:0; margin:0; display:grid; gap:8px }
+.side-list li{
+  background: var(--ink);
+  border:var(--border);
+  border-left: 4px solid transparent;
+  border-radius:10px; padding:10px 12px; cursor:pointer; user-select:none;
+  transition: transform .08s ease, border-color .2s, background .2s;
+}
+.side-list li:hover{ transform: translateX(2px); background:#0f202d }
+.side-list li.active{ border-left-color: var(--gold); }
 
-.site-logo{
-  height:48px; width:auto; display:block;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+/* ====== Content ====== */
+.content-head{ display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.content-head h2{ margin:0; font-size:clamp(20px,2.2vw,24px) }
+.filters{ display:flex; gap:8px; align-items:center; }
+.search{
+  min-width:260px; flex:1 1 260px; padding:10px 12px; border-radius:10px; outline:none;
+  background:var(--deep); border:var(--border); color:var(--text);
 }
+.search:focus{ border-color:var(--gold); box-shadow:0 0 0 6px rgba(213,162,58,.22) }
+.btn{
+  appearance:none; border:none; cursor:pointer; padding:10px 12px; border-radius:10px; font-weight:700;
+  background:linear-gradient(180deg, var(--gold), var(--gold-2)); color:#1b1404;
+  box-shadow:0 8px 22px rgba(213,162,58,.35);
+}
+.btn.ghost{ background:transparent; color:var(--muted); border:var(--border); box-shadow:none }
+.btn.ghost:hover{ color:var(--text); border-color:rgba(213,162,58,.6) }
 
-.brand-text h1{
-  font-size:20px; line-height:1.1; margin:0; font-weight:800;
-}
-.brand-text p{
-  margin:2px 0 0; font-size:12px; color:var(--muted);
-}
+/* ====== Cards ====== */
+.cards{ list-style:none; margin:14px 0 0; padding:0; display:grid; gap:14px;
+  grid-template-columns:1fr }
+@media (min-width:720px){ .cards{ grid-template-columns:1fr 1fr } }
+@media (min-width:1100px){ .cards{ grid-template-columns:1fr 1fr 1fr } }
 
-/* toppmeny (valgfritt) */
-.topnav{display:flex; gap:10px}
-.nav-link{
-  color:var(--muted); text-decoration:none;
-  padding:8px 10px; border-radius:8px;
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%), var(--deep);
+  border:var(--border); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow);
+  transition:transform .12s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.nav-link:hover{ color:var(--text); background:rgba(255,255,255,.06) }
-.nav-link.is-active{ color:#fff; background:rgba(225,29,46,.18) }
+.card:hover{ transform:translateY(-2px); border-color:rgba(213,162,58,.55); box-shadow:0 14px 36px rgba(213,162,58,.14); }
+.badge{ display:inline-flex; gap:.4rem; align-items:center; margin-bottom:8px;
+  color:#fff; font-size:12px; font-weight:800; letter-spacing:.4px;
+  background:rgba(44,111,149,.18); border:1px solid rgba(44,111,149,.45);
+  border-radius:999px; padding:4px 10px;
+}
+.title{ margin:0 0 6px; font-weight:900; font-size:16px }
+.meta{ display:flex; flex-wrap:wrap; gap:8px 12px; color:var(--muted); font-size:13px }
+.cta{
+  margin-top:10px; display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; font-weight:800;
+  padding:10px 12px; border-radius:10px; color:#1b1404;
+  background:linear-gradient(180deg, var(--gold), var(--gold-2)); box-shadow:0 10px 26px rgba(213,162,58,.35);
+}
+.cta:hover{ filter:brightness(1.06) }
+
+/* ====== Footer ====== */
+.footer{ max-width:var(--max); margin:28px auto 40px; padding:0 18px; color:var(--muted); font-size:13px }
+
+/* ====== A11y ====== */
+@media (prefers-reduced-motion: reduce){ *{transition:none!important; animation:none!important} }

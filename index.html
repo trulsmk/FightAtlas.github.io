@@ -1,68 +1,52 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Combat</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="./" class="brand">
-      <img src="images/MyCombatTranparent.png" alt="My Combat logo" class="site-logo" />
-      <div class="brand-text">
-        <h1>My Combat</h1>
-        <p>Din globale kampsportkalender</p>
+  <!-- Topp -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./">
+        <img src="images/MyCombatTransparent.png" alt="My Combat" class="logo" />
+        <div class="brand-text">
+          <h1>My Combat</h1>
+          <p>Din globale kampsportkalender</p>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Venstre panel -->
+    <aside class="sidebar">
+      <h3 class="side-title">Promotions</h3>
+      <ul id="promo-list" class="side-list"></ul>
+
+      <h3 class="side-title mt">Kampsporter</h3>
+      <ul id="sport-list" class="side-list"></ul>
+    </aside>
+
+    <!-- Midtkolonne -->
+    <main class="content">
+      <div class="content-head">
+        <h2>Mest populære kamper</h2>
+        <div class="filters">
+          <input id="q" class="search" placeholder="Søk: navn, promotion, by …" />
+          <button id="clear" class="btn ghost">Nullstill</button>
+        </div>
       </div>
-    </a>
-
-    <!-- (valgfritt) toppmeny -->
-    <nav class="topnav">
-      <a href="#" class="nav-link is-active">Hjem</a>
-      <a href="#" class="nav-link">Kategorier</a>
-      <a href="#" class="nav-link">Om</a>
-    </nav>
+      <ul id="cards" class="cards"></ul>
+    </main>
   </div>
-</header>
 
-
-  <main class="sports-grid">
-    <div class="sport-card" data-sport="mma">
-      <h2>MMA</h2>
-      <p>Neste: UFC 305</p>
-    </div>
-    <div class="sport-card" data-sport="boxing">
-      <h2>Boksing</h2>
-      <p>Neste: World Title Night</p>
-    </div>
-    <div class="sport-card" data-sport="grappling">
-      <h2>Grappling</h2>
-      <p>Neste: IBJJF GP</p>
-    </div>
-    <div class="sport-card" data-sport="kickboxing">
-      <h2>Kick/Muay Thai</h2>
-      <p>Neste: Glory 95</p>
-    </div>
-    <div class="sport-card" data-sport="bareknuckle">
-      <h2>Bare Knuckle</h2>
-      <p>Neste: BKFC 80</p>
-    </div>
-    <div class="sport-card" data-sport="slap">
-      <h2>Slap Fighting</h2>
-      <p>Neste: Power Slap 15</p>
-    </div>
-  </main>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="event-title"></h2>
-      <p id="event-details"></p>
-      <div id="fighters"></div>
-    </div>
-  </div>
+  <footer class="footer">
+    © <span id="year"></span> My Combat
+  </footer>
 
   <script src="script.js"></script>
 </body>
