@@ -1,88 +1,53 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fight Atlas</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top App Bar -->
-  <header class="appbar">
-    <div class="appbar-inner">
-      <div class="brand">🥊 Fight Atlas</div>
-      <div class="search-wrap">
-        <input id="q" class="search" placeholder="Søk: UFC, Glory, IBJJF, Las Vegas …" />
-      </div>
-      <nav class="topnav">
-        <a class="toplink is-active">Events</a>
-        <a class="toplink">Om</a>
-      </nav>
-    </div>
+  <header>
+    <h1>🥊 Fight Atlas</h1>
+    <p>Din globale kampsportkalender</p>
   </header>
 
-  <!-- 3-kol layout -->
-  <div class="layout">
-    <!-- Venstre sidebar -->
-    <aside class="sidebar left">
-      <h4 class="side-title">Top promotions</h4>
-      <ul class="navlist">
-        <li>UFC</li>
-        <li>PFL</li>
-        <li>Bellator / PFL</li>
-        <li>ONE Championship</li>
-        <li>Rizin</li>
-        <li>Glory</li>
-        <li>K-1</li>
-        <li>BKFC</li>
-        <li>ADCC</li>
-        <li>IBJJF</li>
-      </ul>
+  <main class="sports-grid">
+    <div class="sport-card" data-sport="mma">
+      <h2>MMA</h2>
+      <p>Neste: UFC 305</p>
+    </div>
+    <div class="sport-card" data-sport="boxing">
+      <h2>Boksing</h2>
+      <p>Neste: World Title Night</p>
+    </div>
+    <div class="sport-card" data-sport="grappling">
+      <h2>Grappling</h2>
+      <p>Neste: IBJJF GP</p>
+    </div>
+    <div class="sport-card" data-sport="kickboxing">
+      <h2>Kick/Muay Thai</h2>
+      <p>Neste: Glory 95</p>
+    </div>
+    <div class="sport-card" data-sport="bareknuckle">
+      <h2>Bare Knuckle</h2>
+      <p>Neste: BKFC 80</p>
+    </div>
+    <div class="sport-card" data-sport="slap">
+      <h2>Slap Fighting</h2>
+      <p>Neste: Power Slap 15</p>
+    </div>
+  </main>
 
-      <h4 class="side-title">Kategorier</h4>
-      <div class="chips" id="chips">
-        <button class="chip is-active" data-filter="ALL">Alle</button>
-        <button class="chip" data-filter="MMA">MMA</button>
-        <button class="chip" data-filter="Boxing">Boksing</button>
-        <button class="chip" data-filter="Grappling">Grappling</button>
-        <button class="chip" data-filter="Kick/Muay">Kick/Muay</button>
-        <button class="chip" data-filter="Bare Knuckle">Bare Knuckle</button>
-        <button class="chip" data-filter="Slap">Slap</button>
-      </div>
-    </aside>
-
-    <!-- Midt-kolonne -->
-    <main class="content">
-      <div class="section-head">
-        <h2>Kommende kamper</h2>
-        <span id="count" class="count">0 treff</span>
-      </div>
-      <ul id="event-list" class="cards"></ul>
-    </main>
-
-    <!-- Høyre sidebar -->
-    <aside class="sidebar right">
-      <div class="widget">
-        <h4>På TV / PPV</h4>
-        <ul class="mini">
-          <li><span>UFC 305</span><small>Fight Pass / PPV</small></li>
-          <li><span>BKFC 80</span><small>BKFC App</small></li>
-          <li><span>ONE 187</span><small>Prime Video</small></li>
-        </ul>
-      </div>
-      <div class="widget">
-        <h4>Nyheter</h4>
-        <ul class="mini">
-          <li><span>Tittelmatch bekreftet</span><small>UFC</small></li>
-          <li><span>GP-bracket klar</span><small>ADCC</small></li>
-        </ul>
-      </div>
-    </aside>
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="event-title"></h2>
+      <p id="event-details"></p>
+      <div id="fighters"></div>
+    </div>
   </div>
-
-  <footer class="footer">
-    © <span id="year"></span> Fight Atlas
-  </footer>
 
   <script src="script.js"></script>
 </body>
