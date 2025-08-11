@@ -1,58 +1,45 @@
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #1a1a1a, #000);
-  color: white;
-  margin: 0;
+/* --- Header m/logo --- */
+:root{
+  --bg:#0f1115; --text:#e8ebf0; --muted:#9aa3b2;
+  --panel:#141821; --border:1px solid rgba(255,255,255,.08);
+  --brand:#e11d2e; --max:1100px;
 }
 
-header {
-  text-align: center;
-  padding: 20px;
-  background: #e50914;
+.container{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+.site-header{
+  position: sticky; top:0; z-index:20;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(15,17,21,.92), rgba(15,17,21,.6));
+  border-bottom: var(--border);
 }
 
-.sports-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  min-height:72px;
 }
 
-.sport-card {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+.brand{
+  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
 }
 
-.sport-card:hover {
-  background: #e50914;
-  transform: translateY(-5px);
+.site-logo{
+  height:48px; width:auto; display:block;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
 }
 
-/* Modal styles */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
+.brand-text h1{
+  font-size:20px; line-height:1.1; margin:0; font-weight:800;
+}
+.brand-text p{
+  margin:2px 0 0; font-size:12px; color:var(--muted);
 }
 
-.modal-content {
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 600px;
+/* toppmeny (valgfritt) */
+.topnav{display:flex; gap:10px}
+.nav-link{
+  color:var(--muted); text-decoration:none;
+  padding:8px 10px; border-radius:8px;
 }
-
-.close {
-  float: right;
-  font-size: 24px;
-  cursor: pointer;
-}
+.nav-link:hover{ color:var(--text); background:rgba(255,255,255,.06) }
+.nav-link.is-active{ color:#fff; background:rgba(225,29,46,.18) }
